@@ -22,7 +22,8 @@ async def check_resources():
                         f'\U0001F9D8'
                         f'\U0001F308:\n'
                         f'Время и дата: {dt}\n'
-                        f'Название: {name}\n')
+                        f'Название: {name}\n'
+                    )
                     await states.print_notes(int(resource_id), database.Resource(resource_id, dt, name))
                 if database.remember(date_time, datetime.timedelta(days=1)):
                     await states.bot.send_message(
@@ -32,7 +33,8 @@ async def check_resources():
                         f'\U0001F4A3'
                         f'\U0001F494:\n'
                         f'Время и дата: {dt}\n'
-                        f'Название: {name}\n')
+                        f'Название: {name}\n'
+                    )
                     await states.print_notes(int(resource_id), database.Resource(resource_id, dt, name))
                 if database.remember(date_time, datetime.timedelta(hours=1)):
                     await states.bot.send_message(
@@ -42,7 +44,8 @@ async def check_resources():
                         f'\U00002620\U0000FE0F'
                         f'\U0001F56F\U0000FE0F:\n'
                         f'Время и дата: {dt}\n'
-                        f'Название: {name}\n')
+                        f'Название: {name}\n'
+                    )
                     await states.print_notes(int(resource_id), database.Resource(resource_id, dt, name))
         except:
             logging.exception("Error in scheduler's working")
