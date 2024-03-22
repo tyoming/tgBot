@@ -7,28 +7,46 @@ from mysql.connector import connect
 
 from config import database_data
 
+connection = connect(**database_data)
+
 
 def run(*args):
-    with connect(**database_data) as connection:
-        with connection.cursor() as cursor:
-            cursor.execute(*args)
-            connection.commit()
+    global connection
+    while True:
+        try:
+            with connection.cursor() as cursor:
+                cursor.execute(*args)
+                connection.commit()
+            break
+        except:
+            logging.exception("Error in connection's working")
+            connection = connect(**database_data)
 
 
 def one(*args):
-    with connect(**database_data) as connection:
-        with connection.cursor() as cursor:
-            cursor.execute(*args)
-            res = cursor.fetchone()
-            return res
+    global connection
+    while True:
+        try:
+            with connection.cursor() as cursor:
+                cursor.execute(*args)
+                res = cursor.fetchone()
+                return res
+        except:
+            logging.exception("Error in connection's working")
+            connection = connect(**database_data)
 
 
 def all(*args):
-    with connect(**database_data) as connection:
-        with connection.cursor() as cursor:
-            cursor.execute(*args)
-            res = cursor.fetchall()
-            return res
+    global connection
+    while True:
+        try:
+            with connection.cursor() as cursor:
+                cursor.execute(*args)
+                res = cursor.fetchall()
+                return res
+        except:
+            logging.exception("Error in connection's working")
+            connection = connect(**database_data)
 
 
 class Note:
