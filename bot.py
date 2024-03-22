@@ -1,14 +1,15 @@
+import sys
 import asyncio
 import logging
-import sys
-import scheduler
-import database
-import keyboards
-import states
 
 from aiogram import Dispatcher, types, F
 from aiogram.filters import Command
 from aiogram.fsm.context import FSMContext
+
+import database
+import keyboards
+import scheduler
+import states
 
 dp = Dispatcher()
 

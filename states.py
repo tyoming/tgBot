@@ -1,12 +1,12 @@
-import database
-from config import bot_token
-
 from aiogram import Bot, types, F, Router
 from aiogram.enums import ParseMode
 from aiogram.filters import Command, StateFilter
 from aiogram.fsm.state import State, StatesGroup
 from aiogram.fsm.context import FSMContext
 from aiogram.utils.media_group import MediaGroupBuilder
+
+import database
+from config import bot_token
 
 bot = Bot(token=bot_token, parse_mode=ParseMode.HTML)
 router = Router()

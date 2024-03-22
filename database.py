@@ -1,8 +1,10 @@
 import logging
-import pytz
 import datetime
 import json
+
+import pytz
 from mysql.connector import connect
+
 from config import database_data
 
 
