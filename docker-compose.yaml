@@ -1,0 +1,25 @@
+version: "3.9"
+
+services:
+
+  db:
+    image: mysql
+    hostname: db
+    restart: always
+    ports:
+      - "3306:3306"
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_DATABASE: 'your_database'
+      MYSQL_ROOT_PASSWORD: 'your_password'
+    volumes:
+      - ./database.sql:/docker-entrypoint-initdb.d/database.sql
+      - ./db_data:/var/lib/mysql
+
+  tg_bot:
+    depends_on:
+      - db
+    build: .
+    restart: always
+    ports:
+      - "8000:8000"
