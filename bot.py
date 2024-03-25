@@ -7,7 +7,6 @@ from aiogram.filters import Command
 from aiogram.fsm.context import FSMContext
 
 import database
-import keyboards
 import scheduler
 import states
 
@@ -20,7 +19,6 @@ async def cmd_handler(message: types.Message, state: FSMContext):
         f'Привет, {message.from_user.full_name}!\n'
         f'Я буду напоминать о важных заметках, чтобы вы ничего не забыли.\n'
         f'Чтобы увидеть функционал бота, напиши /help',
-        reply_markup=keyboards.get_start_keyboard()
     )
 
 

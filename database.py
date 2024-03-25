@@ -7,7 +7,7 @@ from mysql.connector import connect
 
 from config import database_data
 
-connection = connect(**database_data)
+connection = None
 
 
 def run(*args):
