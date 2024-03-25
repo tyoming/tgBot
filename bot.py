@@ -18,7 +18,7 @@ async def cmd_handler(message: types.Message, state: FSMContext):
     await message.reply(
         f'Привет, {message.from_user.full_name}!\n'
         f'Я буду напоминать о важных заметках, чтобы вы ничего не забыли.\n'
-        f'Чтобы увидеть функционал бота, напиши /help',
+        f'Чтобы увидеть функционал бота, напиши /help'
     )
 
 
